@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Adi Example
+	</title>
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/json-tree.css" rel="stylesheet">
+</head>
+
+<body ng-app="adi" ng-controller="MainCtrl">
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+				<legend>Input</legend>
+				<div class="input-group">
+        <input ng-model="input.lang" type="radio" 
+               name="lang" value="clj"> clojure</input>
+        &nbsp;&nbsp;&nbsp;
+        <input ng-model="input.lang" type="radio" 
+              name="lang" value="js"> javascript</input>
+      </div> <br/>
+          <textarea ng-model="input.arg1"
+                    style="height:150px; width:100%"
+                    placeholder="First Input"></textarea> <br/><br/>
+          
+            <button type="button" ng-click="standardOp('insert!', 1)"  
+                    class="btn btn-default">Insert</button>
+            <button type="button" ng-click="standardOp('select', 1)" 
+                    class="btn btn-default">Query</button>
+            <button type="button" ng-click="standardOp('delete!', 1)" 
+                    class="btn btn-default">Delete</button> <br/><br/>
+
+          <textarea ng-model="input.arg2"
+                    style="height:80px; width:100%"
+                    placeholder="Second Input"></textarea> <br/><br/>
+
+          <button type="button" ng-click="standardOp('update!', 2)" 
+                  class="btn btn-default">Update</button>
+          <button type="button" ng-click="standardOp('retract!', 2)" 
+                  class="btn btn-default">Retract</button><br/><br/>
+
+          <textarea ng-model="input.arg3"
+                    style="height:80px; width:100%"
+                    placeholder="Third Input"></textarea> <br/><br/>
+
+          <button type="button" ng-click="standardOp('update-in!', 1)"
+                  class="btn btn-default">Update In</button>
+          <button type="button" ng-click="standardOp('retract-in!', 1)" 
+                  class="btn btn-default">Retract In</button>
+  		</div>
+
+		<div class="col-md-5">
+      
+			<legend>Results <input ng-model="input.ids" type="checkbox"></input></legend>
+			<div json-tree="{{output.results}}" expand="'true'"></div>
+		</div>
+		<div class="col-md-4">
+      <legend>Setup</legend>
+      <textarea style="height:150px; width:100%"
+                ng-model="input.setupArg"></textarea><br/><br/>
+
+      <legend>Return</legend>
+      <button type="button" ng-click="setupOp('set','return')" 
+              class="btn btn-default">Set</button>
+      <button type="button" ng-click="setupOp('clear','return')" 
+              class="btn btn-default">Clear</button>
+      <button type="button" ng-click="setupOp('view','return')" 
+              class="btn btn-default">View</button><br/><br/>
+              
+      <legend>Access</legend>
+      <button type="button" ng-click="setupOp('set','access')" 
+              class="btn btn-default">Set</button>
+      <button type="button" ng-click="setupOp('clear','access')" 
+              class="btn btn-default">Clear</button>
+      <button type="button" ng-click="setupOp('view','access')" 
+              class="btn btn-default">View</button><br/><br/>
+
+      <legend>Schema</legend>
+      <button type="button" ng-click="setupOp('set','schema')" 
+              class="btn btn-default">Set</button>
+      <button type="button" ng-click="setupOp('clear','schema')" 
+              class="btn btn-default">Clear</button>
+      <button type="button" ng-click="setupOp('view','schema')" 
+              class="btn btn-default">View</button><br/><br/>
+      
+      <legend>Model</legend>
+      <button type="button" ng-click="setupOp('set','model')" 
+              class="btn btn-default">Set</button>
+      <button type="button" ng-click="setupOp('clear','model')" 
+              class="btn btn-default">Clear</button>
+      <button type="button" ng-click="setupOp('view','model')" 
+              class="btn btn-default">View</button><br/><br/>
+		</div>
+	</div>
+</div>
+
+	<script src="js/angular.js"></script>
+	<script src="js/json-tree.js"></script>
+	<script src="js/adi-example.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+.json-tree, .json-tree ul {
+	list-style: none;
+  -webkit-padding-start: 20px;
+}
+
+.json-tree ul {
+	/*margin: 0 0 0 20px;*/
+  /*padding: 0 0 0 10px;*/
+}
+
+.json-tree .parent {
+	margin: .5em 0 .5em 0;
+	color: black;
+}
+
+.json-tree .parent:before {
+	content: ">";
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.json-tree .parent.open:before{
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.json-tree .parent > a {
+	font-weight: bold;
+}
+
+.json-tree .parent > ul {
+	display: block;
+}
+
+.json-tree .parent.open > ul {
+	display: none;
+}
+
+.json-tree .child {
+	color: #585858;
+}
+
+.json-tree em {
+	font-family: Arial;
+	font-style: normal;
+	color: rgba(199, 93, 10, 1);
+	font-weight: bold;
+}
